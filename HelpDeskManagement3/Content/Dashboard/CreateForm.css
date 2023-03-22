@@ -1,0 +1,98 @@
+﻿.form-grou {
+    width: 600px;
+    height: 700px;
+    margin-left: 30%;
+    margin-top: 3%;
+    border-radius: 5px;
+  
+    -webkit-box-shadow: 1px 2px 5px 0px rgba(104, 92, 92, 0.75);
+    -moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+  
+
+h2 {
+    text-align: center;
+    background: #1e8ad2;
+    padding: 10px;
+    color: white;
+}
+
+
+.button {
+    width: 22%;
+    margin-top:10%;
+    margin-left: 25%;
+}
+.button1 {
+    min-width: 75px;
+    padding: 7px;
+    border-radius: 5px;
+    color: white;
+    margin-left:30% !important;
+    background-color:red;
+}
+.bttn {
+    
+    margin-left: 5%;
+}
+.mycontainer{
+ margin-top:12%;
+}
+.fromtext {
+ 
+    margin-top: 6%;
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly;
+}
+.inputbox {
+    max-width: 60%;
+}
+.inputtext {
+    width: 100%;
+ 
+
+}
+.inputtextDepart {
+ 
+    margin-left:-3%;
+}
+.roletype {
+    display: flex;
+
+    justify-content: space-between;
+    width: 54%;
+
+}
+.editrole {
+   
+    margin-left:-2%;
+}
+.emaillabel {
+
+    margin-left:1%;
+}
+
+
+.list {
+    margin-left: 48%;
+    margin-top: -5%;
+}
+
+
+.form-group {
+    width: 80%;
+    margin-left: 15%;
+}
+
+.mynewclass {
+    background-color: red !important;
+}
+
+.btn {
+}
+.control-label{
+    margin-top:5px;
+}

@@ -1,0 +1,90 @@
+﻿@model Model.UserTable
+
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<link href="~/Content/Dashboard/CreateForm.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-grou">
+
+        <h2>Edit User</h2>
+
+        <div class="container mycontainer">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+
+
+
+            <div class="form-group  fromtext">
+                @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10  inputbox">
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control inputtext" } })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group  fromtext">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10  inputbox">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control inputtext" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @*<div class="form-group">
+            @Html.LabelFor(model => model.Roletype, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Roletype, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Roletype, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+            <div class="form-group  fromtext">
+                @Html.LabelFor(model => model.Roletype, htmlAttributes: new { @class = "control-label col-md-2 editrole" })
+                <select class="form-control roletype" style=" max-width: 354px; margin-left: -2%;" name="RoleTypeID">
+                    <option>Select a RoleType</option>
+                    @foreach (var item in ViewBag.role)
+                    {
+                        <option value="@item.RoleTypeID">@item.RoleType_Disc</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group  fromtext">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2 emaillabel" })
+                <div class="col-md-10  inputbox" style=" max-width:83%;">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control inputtext" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="btn-group button">
+                <div class="col-md-offset-2 col-md-10 bttn" style="width:60%;">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+                <div class="btn-group button1">
+                    <a href="@Url.Action("Showuser","Dashboard")" style="text-decoration: none; margin-left: 6px; color: white">Cancel</a>
+
+                </div>
+
+            </div>
+            </div>
+
+        </div>
+        }
+
+
+
+

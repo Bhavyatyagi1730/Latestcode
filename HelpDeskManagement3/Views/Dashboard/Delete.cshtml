@@ -1,0 +1,57 @@
+﻿@model Model.UserTable
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<link href="~/Content/Dashboard/Deletepage.css" rel="stylesheet" />
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<div class="Delete">
+    <div class="head"><h3>Are you sure you want to delete this?</h3></div>
+    @*<dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.UserName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Roletype)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Roletype)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+        </dl>*@
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color dele">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Cancel", "ShowUser","" , new { @class = "btncancel" })
+        </div>
+    }
+</div>

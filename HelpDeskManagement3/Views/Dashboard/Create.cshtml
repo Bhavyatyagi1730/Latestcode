@@ -1,0 +1,111 @@
+﻿@model Model.UserTable
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="~/Content/Dashboard/CreateForm.css" rel="stylesheet" />
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-grou">
+
+        <h2>Add New User</h2>
+
+    <div class="container mycontainer">
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group fromtext">
+            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10  inputbox">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control  inputtext" } })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        @*<div class="form-group" style=" width:62.5%; margin-left:17%;">
+                <label for="item">Department</label>
+                <select class="form-control" id="item">
+                    <option>Select a Department</option>
+                    @foreach (var item in ViewBag.dpt)
+                    {
+                        <option value="@item.Dep_ID">@item.Dept_Desc</option>
+                    }
+                </select>
+            </div>*@
+
+
+        <div class="form-group fromtext">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 inputbox">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control inputtext" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Roletype, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Roletype, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Roletype, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+
+        <div class="form-group fromtext">
+            <label style="margin-top:5px" for="item">RoleType</label>
+            <select class="form-control roletype" name="RoleTypeID">
+                <option>Select a RoleType</option>
+                @foreach (var item in ViewBag.role)
+                {
+                    <option value="@item.RoleTypeID">@item.RoleType_Disc</option>
+                }
+            </select>
+        </div>
+
+
+        <div class="form-group fromtext">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 inputbox ">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control inputtext " } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="btn-group button">
+            <div class="col-md-offset-2 col-md-10 bttn" style="width:60%;">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            <div class="btn-group button1">
+                <a href="@Url.Action("ShowAdminDashboard","Dashboard")" style="text-decoration: none; margin-left: 6px; color: white">Cancel</a>
+
+            </div>
+ 
+        </div>
+        @*<div class="list" style="border:2px solid red; width:80px;height:40px;margin-top:-6.5%; border-radius:5px;background-color:red;">
+      </div>*@
+    </div>
+</div>
+}
+
+
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

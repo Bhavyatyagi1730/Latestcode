@@ -1,0 +1,128 @@
+﻿@model IEnumerable<Model.TicketTable>
+
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<h2>Index</h2>
+<h1> I am user @Session["username"]</h1>
+<h1> I am user @Session["Email"]</h1>
+<h1> I am user @Session["Id"]</h1>
+
+<div id="notification-container"></div>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Ticket_Id)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dep_ID)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>*@
+        <th></th>
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @if (item.Status == 0)
+                {
+                    <p>Open</p>
+                }
+                else if (item.Status == 1)
+                {
+                    <p>Progress</p>
+                }
+                else
+                {
+                    <p>Close</p>
+
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataTime)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Dep_ID)*@
+                @if (item.Dep_ID == 1)
+                {
+                    <p>Java</p>
+                }
+                else if (item.Dep_ID == 2)
+                {
+                    <p>Python</p>
+                }
+                else if (item.Dep_ID == 3)
+                {
+                    <p>Asp.Net</p>
+                }
+                else if (item.Dep_ID == 4)
+                {
+                    <p>OS</p>
+                }
+                else if (item.Dep_ID == 5)
+                {
+                    <p>AI</p>
+                }
+                else if (item.Dep_ID == 6)
+                {
+                    <p>Manager</p>
+
+                }
+                else
+                {
+                    <p>Other</p>
+                }
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>*@
+            <td>
+              
+                @Html.ActionLink("Delete", "Delete", new { id = item.Ticket_Id })
+            </td>
+        </tr>
+    }
+
+
+</table>
